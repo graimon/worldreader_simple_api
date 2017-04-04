@@ -6,11 +6,11 @@ local: &local
 
 development:
   <<: *local
-  database: dashboard_development
+  database: wr_development
 
 test:
   <<: *local
-  database: dashboard_test
+  database: wr_test
 
 production:
   adapter: postgres

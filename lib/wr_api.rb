@@ -1,5 +1,8 @@
 module WrApi
   
+  autoload :Api,    'wr_api/api'
+  autoload :Models, 'wr_api/models'
+  
   def self.env
     ENV.fetch('APP_ENV', 'development')
   end
