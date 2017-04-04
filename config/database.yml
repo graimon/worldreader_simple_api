@@ -1,0 +1,23 @@
+local: &local
+  adapter: postgres
+  username: root
+  host: localhost
+  encoding: utf8
+
+development:
+  <<: *local
+  database: dashboard_development
+
+test:
+  <<: *local
+  database: dashboard_test
+
+production:
+  adapter: postgres
+  username: readonly
+  password: dGUA1thwtznKWeqohU1lwl
+  database: wrtest
+  host: wrtest.cgxehdr5uwty.eu-west-1.rds.amazonaws.com
+  encoding: utf8
+  read_timeout: 3600
+  pool: 10
