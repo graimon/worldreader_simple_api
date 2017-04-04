@@ -13,6 +13,16 @@ module WrApi
           new row if row
         end
         
+        def all offset, limit
+          table.limit(limit).offset(offset).collect do |row|
+            new row
+          end
+        end
+        
+        def count
+          table.count
+        end
+        
       end
       
       attr_accessor :id, :iconcolor, :iconurl, :name, :description, :parent_id, :listorder
@@ -27,12 +37,21 @@ module WrApi
         @listorder    = data[:listorder]
       end
       
-      def books
-        self.class.table.join(:category_book, :categories_id => :id).
-          join(:book, :id => :books_id).select(Sequel.lit("book.*")).collect do |row|
-          
+      def books offset, limit
+        books_scope.limit(limit).offset(offset).collect do |row|
           Book.new row
         end
+      end
+      
+      def books_count
+        books_scope.count
+      end
+      
+      private
+      
+      def books_scope 
+        self.class.table.join(:category_book, :categories_id => :id).
+          join(:book, :id => :books_id).select(Sequel.lit("book.*"))
       end
       
     end

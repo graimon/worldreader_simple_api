@@ -9,8 +9,10 @@ module WrApi
       message   = "Message: #{error.message}"
       backtrace = "Backtrace: #{error.backtrace.join("\n")}"
       footer    = "==============================="
-
-      $logger.error("\n#{header}\n#{message}\n#{backtrace}\n#{footer}")
+      
+      message = "\n#{header}\n#{message}\n#{backtrace}\n#{footer}"
+      $logger.error(message)
+      error! message, 400
     end
 
     prefix :api

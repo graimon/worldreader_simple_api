@@ -1,7 +1,10 @@
 module WrApi
   
-  autoload :Api,    'wr_api/api'
-  autoload :Models, 'wr_api/models'
+  DEFAULT_PAGE_SIZE = 20
+  
+  autoload :Api,          'wr_api/api'
+  autoload :Models,       'wr_api/models'
+  autoload :Serializers,  'wr_api/serializers'
   
   def self.env
     ENV.fetch('APP_ENV', 'development')

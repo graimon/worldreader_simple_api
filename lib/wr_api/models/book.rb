@@ -13,6 +13,16 @@ module WrApi
           new row if row
         end
         
+        def all offset, limit
+          table.limit(limit).offset(offset).collect do |row|
+            new row
+          end
+        end
+        
+        def count
+          table.count
+        end
+        
       end
       
       attr_accessor :uuid, :id, :title, :author, :language, :createtime
