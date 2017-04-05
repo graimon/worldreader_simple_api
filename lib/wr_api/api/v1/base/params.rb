@@ -11,7 +11,7 @@ module WrApi
           end
 
           def offset
-            page * limit
+            (page - 1) * limit
           end
 
           def per_page
@@ -20,7 +20,7 @@ module WrApi
           alias :limit :per_page
           
           def page
-            raw_params.fetch(:page, 0).to_i
+            raw_params.fetch(:page, 1).to_i
           end
 
         end

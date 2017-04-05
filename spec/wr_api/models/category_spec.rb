@@ -2,13 +2,13 @@ require 'spec_helper'
 
 RSpec.describe WrApi::Models::Category do
   
-  let(:category_id) { Faker::Number.digit.to_i }
+  let(:category_id) { Faker::Number.number(2).to_i }
   let(:iconcolor)   { Faker::Color.hex_color[1..-1] }
   let(:iconurl)     { Faker::LoremPixel.image }
   let(:name)        { Faker::Lorem.word }
   let(:description) { Faker::Lorem.sentence }
-  let(:parent_id)   { Faker::Number.digit.to_i }
-  let(:listorder)   { Faker::Number.digit.to_i }
+  let(:parent_id)   { Faker::Number.number(2).to_i }
+  let(:listorder)   { Faker::Number.number(2).to_i }
   
   let(:data) do 
     {
@@ -61,8 +61,8 @@ RSpec.describe WrApi::Models::Category do
   
       let(:uuid1)       { Faker::Crypto.sha256 }
       let(:uuid2)       { Faker::Crypto.sha256 }
-      let(:book_id1)    { Faker::Number.digit.to_i }
-      let(:book_id2)    { Faker::Number.digit.to_i }
+      let(:book_id1)    { Faker::Number.unique.number(2).to_i }
+      let(:book_id2)    { Faker::Number.unique.number(2).to_i }
       let(:title)       { Faker::Book.title }
       let(:author)      { Faker::Book.author }
       let(:language)    { "Spanish" }
@@ -101,7 +101,7 @@ RSpec.describe WrApi::Models::Category do
         stored_book1 = WrApi::Models::Book.get uuid1
         stored_book2 = WrApi::Models::Book.get uuid2
         
-        category_books = subject.books
+        category_books = subject.books 0, 20
         
         expect(category_books.map(&:uuid)).to eq [stored_book1.uuid, stored_book2.uuid]
         expect(category_books.map(&:id)).to eq [stored_book1.id, stored_book2.id]

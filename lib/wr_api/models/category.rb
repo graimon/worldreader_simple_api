@@ -14,7 +14,7 @@ module WrApi
         end
         
         def all offset, limit
-          table.limit(limit).offset(offset).collect do |row|
+          table.limit(limit).offset(offset).order(:listorder).collect do |row|
             new row
           end
         end

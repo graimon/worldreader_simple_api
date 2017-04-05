@@ -36,7 +36,8 @@ module WrApi
                 status :not_found
                 Serializers::Category.new(category)
               else
-                Serializers::Books.new(category.books, category.books_count, params)
+                books = category.books current_params.offset, current_params.per_page
+                Serializers::Books.new(books, category.books_count, current_params)
               end
             end
             

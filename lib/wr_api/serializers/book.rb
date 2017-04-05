@@ -5,7 +5,7 @@ module WrApi
       attr_reader :book
 
       def initialize book
-        @category = book
+        @book = book
       end
 
       def to_json

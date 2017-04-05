@@ -5,7 +5,7 @@ module WrApi
       attr_reader :categories, :total_results, :params
 
       def initialize categories, total_results, params
-        @categories          = categories
+        @categories     = categories
         @total_results  = total_results
         @params         = params
       end
@@ -23,8 +23,8 @@ module WrApi
     private
 
       def categories_json
-        categories.map do |affiliate|
-          Affiliate.new(affiliate).as_json
+        categories.map do |category|
+          Category.new(category).as_json
         end
       end
 

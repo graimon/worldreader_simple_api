@@ -23,8 +23,8 @@ module WrApi
     private
 
       def books_json
-        books.map do |affiliate|
-          Affiliate.new(affiliate).as_json
+        books.map do |book|
+          Book.new(book).as_json
         end
       end
 

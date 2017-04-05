@@ -17,13 +17,13 @@ module WrApi
             Serializers::Books.new(books, count, current_params)
           end
 
-          desc 'Shows a Book'
           params do
-            requires :id, type: Integer, desc: 'Book ID'
+            requires :uuid, type: String, desc: 'Book UUID'
           end
-          route_param :id do
+          route_param :uuid do
+            desc 'Shows a Book'
             get do
-              book = Models::Book.get params[:id]
+              book = Models::Book.get params[:uuid]
 
               status :not_found if book.blank?
               Serializers::Book.new(book)
