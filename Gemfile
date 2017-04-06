@@ -20,13 +20,16 @@ gem "sequel_pg", :require => 'sequel'
 gem "activesupport"
 gem "activemodel"
 gem "active_model_serializers"
+gem 'json'
 
 # === Status ===
 #gem "rack-health"
 
 # === debugging, development and testing ===
-gem "pry"
-gem 'pry-byebug'
+group :development, :test do
+  gem "pry"
+  gem 'pry-byebug'
+end
 
 # ==== Deployment ===
 #group :production, :staging do

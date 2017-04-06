@@ -61,6 +61,7 @@ GEM
     hashie (3.5.5)
     i18n (0.8.1)
     ice_nine (0.11.2)
+    json (1.8.3)
     jsonapi-renderer (0.1.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -134,6 +135,7 @@ DEPENDENCIES
   faker
   grape
   grape-middleware-logger
+  json
   pry
   pry-byebug
   puma
