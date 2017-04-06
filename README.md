@@ -14,17 +14,25 @@ Its purpose is to offer an API that'll show some sample books and categories.
 ### Installation
 
 * Install required gems
+```
     $ bundle install
+```
 
 * Run migrations
+```
     $ rake db:create db:migrate
     $ rake db:create db:migrate APP_ENV=test
+```
 
 * Run tests
+```
     $ rspec
-
+```
+`
 * Start local server
-    $ puma config.ru
+``` 
+   $ puma config.ru
+```
 
 ## Usage
 
