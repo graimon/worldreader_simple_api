@@ -1,5 +1,3 @@
-require 'pry'
-
 desc "Prints all routes from the grape API"
 task :routes do
   format = "%46s  %3s %7s %50s"
