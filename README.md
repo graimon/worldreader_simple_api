@@ -94,7 +94,9 @@ I could have chosen Rails to do this, but I have decided for this lighter soluti
 ### Decisions taken
 
 I've decided to use de uuid of a Book as its identifier, instead of the id as it was initially required. The reason is for database performance, I had no control on the given database and the only index in the books table was the primary key for uuid field. If I had used the id, the response time would have increased drastically.
+
 I've decided not to sort the books result, for the same reason as before, I can't add more indexes, and sorting over unindexed fields on a large table is not recommended.
+
 On the other side, I've decided to sort categories by its listorder, although there was not an index neither. In this case, the cardinality of the categories table (less than 200 records) is so small that any database can handle it.
 
 ### Design
