@@ -28,7 +28,7 @@ Its purpose is to offer an API that'll show some sample books and categories.
 ```
     $ rspec
 ```
-`
+
 * Start local server
 ``` 
    $ puma config.ru
