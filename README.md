@@ -43,9 +43,11 @@ Shows all Books in Category   v1     GET             /api/v1/categories/:id/book
 All list actions (/books, /categories and /categories/:id/books) accepts optional pagination parameters page and per_page. The default page size is 20.
 
 For example: 
+```
 /api/v1/books.json?page=10&per_page=50
 /api/v1/categories.json?per_page=50
 /api/v1/categories/106/books.json?page=4
+```
 
 ### Response examples
 
