@@ -50,8 +50,9 @@ module WrApi
       private
       
       def books_scope 
-        self.class.table.join(:category_book, :categories_id => :id).
-          join(:book, :id => :books_id).select(Sequel.lit("book.*"))
+        self.class.table.join(:category_book, :categories_id => :id).join(:book, :id => :books_id).
+          where(:categories_id => id).
+          select(Sequel.lit("book.*"))
       end
       
     end
